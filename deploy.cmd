@@ -107,7 +107,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 
 IF EXIST "%DEPLOYMENT_TARGET%\.angular-cli.json" (
   pushd "%DEPLOYMENT_TARGET%"
-  call :ExecuteCmd !NG_CMD! build --production
+  call :ExecuteCmd !NPM_CMD! build --production
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
