@@ -1,0 +1,13 @@
+<h1 md-dialog-title *ngIf="!error"> Register </h1>
+<h1 md-dialog-title *ngIf="error"> Failed to Register </h1>
+<form (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <div MdDialogContent class="dialog-content">
+        <input mdInput type="email" placeholder="Email" class="form-control" name="username" [(ngModel)]="model.email" #username="ngModel" required>
+        <input mdInput type="Password" placeholder="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required>
+        <input mdInput type="Password" placeholder="Confirm Password" class="form-control" name="password" [(ngModel)]="model.confirmPassword" #password="ngModel" required>
+    </div>
+    <div MdDialogActions class="action_container">
+        <button color="accent" md-button tabindex="-1" (click)="closeDialog()"> CANCEL </button>
+        <button color="accent" md-button [disabled]="loading" (click)="register()"> REGISTER </button>
+    </div>
+</form>

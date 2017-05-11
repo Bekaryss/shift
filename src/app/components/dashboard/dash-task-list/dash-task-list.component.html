@@ -1,0 +1,39 @@
+<div class="card blue-grey darken-1" [@openClose]="'true'">
+    <div class="card-action">
+        <a fxLayoutAlign="end" md-line [routerLink]="[''] ">
+            <md-icon md-list-icon color="accent">close</md-icon>
+        </a>
+    </div>
+    <div class="card-content white-text">
+        <md-list fxLayoutAlign="start">
+            <h3 md-subheader>Project Tasks</h3>
+        </md-list>
+        <md-list *ngFor="let task of tasks ">
+            <md-list-item>
+                <md-icon md-list-icon *ngIf="!task.EndDate ">loop</md-icon>
+                <md-icon md-list-icon *ngIf="task.EndDate ">done</md-icon>
+                <h4 md-line>{{ task.Title }}</h4>
+                <div md-line>
+                    <div fxLayout="column " fxLayoutAlign="end center " fxFlex="100% ">
+                        <span>
+                            Start: {{ task.StartDate | date: 'yy/MM/yyyy, h:mm:ss a'}}
+                        </span>
+                        <span *ngIf="!task.EndDate ">
+                            End: In processing
+                        </span>
+                        <span *ngIf="task.EndDate ">
+                            End: {{ task.EndDate | date: 'yy/MM/yyyy, h:mm:ss a'}}
+                        </span>
+                    </div>
+                </div>
+                <p md-line>
+                    <span [froalaView]="task.Description"></span>
+                </p>
+
+            </md-list-item>
+            <md-divider></md-divider>
+
+        </md-list>
+    </div>
+
+</div>

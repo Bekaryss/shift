@@ -1,0 +1,28 @@
+<div class="col s12">
+    <md-card>
+        <md-card-header>
+            <md-card-title>Create New Task</md-card-title>
+        </md-card-header>
+        <md-card-content>
+            <form (ngSubmit)="onSubmit(); taskForm.reset()" #taskForm="ngForm" novalidate>
+                <div class="row">
+                    <input mdInput type="text" placeholder="text" class="form-control" name="Title" [(ngModel)]="model.Title" #username="ngModel" required>
+                </div>
+                <br>
+                <div class="row">
+                    <textarea [froalaEditor] type="textarea" placeholder="textarea" class="form-control" name="Description" [(ngModel)]="model.Description" #username="ngModel" debounce="500" required></textarea>
+                </div>
+                <br>
+                <div class="row">
+                    <md-select placeholder="State" [(ngModel)]="selectedValue" name="state" required>
+                        <md-option *ngFor="let state of taskStatus" [value]="state.Id ">{{ state.StatusText }}</md-option>
+                    </md-select>
+                </div>
+                <div class="row">
+                    <button class="btn pink darken-3" type="submit" [disabled]="taskForm.form.invalid ">Добавить</button>
+                </div>
+
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

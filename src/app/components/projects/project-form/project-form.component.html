@@ -1,0 +1,16 @@
+<div class="col s12">
+    <md-card class="white">
+        <md-card-header>
+            <md-card-title>Create New Project</md-card-title>
+        </md-card-header>
+        <form (ngSubmit)="onSubmit(); taskForm.reset()" #taskForm="ngForm" novalidate>
+            <md-card-content>
+                <input mdInput type="text" placeholder="Title" class="form-control" name="Title" [(ngModel)]="model.Title" #username="ngModel" required>
+                <br>
+                <textarea [froalaEditor] placeholder="textarea" class="form-control" name="description" [(ngModel)]="model.Description" #username="ngModel" required></textarea>
+                <br>
+                <button class="btn pink darken-3" type="submit" [disabled]="taskForm.form.invalid ">Добавить</button>
+            </md-card-content>
+        </form>
+    </md-card>
+</div>

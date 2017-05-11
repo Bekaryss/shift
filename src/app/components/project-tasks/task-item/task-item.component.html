@@ -1,0 +1,20 @@
+<div class="card horizontal  white-text">
+    <div class="card-stacked">
+        <div class="card-content green darken-1">
+            <span (click)="onSelect()" class="card-title">{{ task.Title }}</span>
+            <p [froalaView]="task.Description" height="50"></p>
+            <p>Start: {{ task.StartDate }}</p>
+            <p>End: {{ task.EndDate }}</p>
+            <p>{{ task.TaskStatusId }}</p>
+
+            <p *ngIf="task.TaskStatusId == 1">Opened</p>
+            <p *ngIf="task.TaskStatusId == 2">Testing</p>
+            <p *ngIf="task.TaskStatusId == 3">Closed</p>
+        </div>
+        <div class="card-action">
+            <a href="javascript:void(0)" (click)="onSelect()"><i class="material-icons text-color-sakura">more</i></a>
+            <a href="javascript:void(0)" (click)="onDelete()"> <i class="material-icons text-color-sakura">delete</i></a>
+            <a href="javascript:void(0)" *ngIf="!task.EndDate" (click)="onEnd()"><i class="material-icons text-color-sakura">touch_app</i></a>
+        </div>
+    </div>
+</div>

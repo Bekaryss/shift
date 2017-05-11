@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="col s12 m12 l6" *ngFor="let task of tasks">
+            <app-task-item [task]="task" (delete)="onDelete($event)" (select)="onSelect($event)" (endTask)="onEnd($event)"></app-task-item>
+        </div>
+    </div>
+</div>

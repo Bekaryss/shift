@@ -1,0 +1,12 @@
+<div class="col s12">
+    <h5 class="col s12">Edit Project</h5>
+    <form (ngSubmit)="onSubmit(); taskForm.reset()" #taskForm="ngForm" *ngIf="project" novalidate>
+        <md-card-content>
+            <input mdInput type="text" placeholder="text" class="form-control" name="title" [(ngModel)]="project.Title" required>
+            <br>
+            <textarea [froalaEditor] placeholder="textarea" class="form-control" name="description" [(ngModel)]="project.Description" #username="ngModel" required></textarea>
+            <br>
+            <button class="btn pink darken-3 " type="submit " [disabled]="taskForm.form.invalid ">Добавить</button>
+        </md-card-content>
+    </form>
+</div>

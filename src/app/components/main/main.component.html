@@ -1,0 +1,33 @@
+<header>
+    <div class="row">
+        <md-toolbar color="primary">
+            <h5>Double Shift</h5>
+            <div fxLayout="row" fxLayoutAlign="end center" fxFlex="100%">
+                <app-auth fxLayoutAlign="space-around stretch"></app-auth>
+            </div>
+        </md-toolbar>
+    </div>
+
+</header>
+
+<main>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <md-chip-list>
+                    <a md-line *ngFor="let chipColor of availableColors" routerLink="{{ chipColor.link }}">
+                        <md-chip selected="true" color="{{chipColor.color}}" mdTooltip="{{ chipColor.name }}" mdTooltipPosition="below">
+                            <md-icon>{{ chipColor.icon }}</md-icon>
+                        </md-chip>
+                    </a>
+                </md-chip-list>
+            </div>
+
+        </div>
+    </div>
+
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+</main>
+<!---->

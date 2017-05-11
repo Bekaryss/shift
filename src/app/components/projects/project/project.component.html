@@ -1,0 +1,21 @@
+<div class="row" [@openClose]="'true'">
+    <div class="col s12 m12 l12">
+        <md-tab-group>
+            <md-tab label="List">
+                <div class="col s12 m12 l12">
+                    <div class="row">
+                        <app-project-edit [project]="selectedProject" (edit)="edit($event)"></app-project-edit>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12">
+                    <app-project-list [projects]="projects" (delete)="delete($event)" (select)="select($event)"></app-project-list>
+                </div>
+            </md-tab>
+            <md-tab label="Create">
+                <div class="col s12 m12 l12">
+                    <app-project-form (create)="create($event)"></app-project-form>
+                </div>
+            </md-tab>
+        </md-tab-group>
+    </div>
+</div>

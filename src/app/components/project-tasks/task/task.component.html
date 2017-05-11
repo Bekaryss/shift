@@ -1,0 +1,34 @@
+<div class="row" [@openClose]="'true'">
+    <div class="col s12 m12 l6">
+        <!--<div class="row" *ngIf="project">
+            <div class="col s12">
+                <md-card class="example-card">
+                    <md-card-header>
+                        <div md-card-avatar class="example-header-image"></div>
+                        <md-card-title>{{ project.Title }}</md-card-title>
+                        <md-card-subtitle>{{ project.Title }}</md-card-subtitle>
+                        <md-card-subtitle>{{ project.Title }}</md-card-subtitle>
+                    </md-card-header>
+                    <md-card-content>
+                        <p>
+                            {{ project.Description }}
+                        </p>
+                    </md-card-content>
+                    <md-card-actions>
+
+                    </md-card-actions>
+                </md-card>
+
+            </div>
+        </div>-->
+        <app-task-list [tasks]="tasks" (delete)="delete($event)" (select)="select($event)" (end)="end($event)"></app-task-list>
+    </div>
+    <div class="col s12 m12 l6">
+        <div class="row">
+            <app-task-form (create)="create($event)"></app-task-form>
+        </div>
+        <div class="row">
+            <app-task-edit [task]="selectedTask" (edit)="edit($event)"></app-task-edit>
+        </div>
+    </div>
+</div>

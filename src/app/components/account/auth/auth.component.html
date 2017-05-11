@@ -1,0 +1,25 @@
+<div md-menu-item *ngIf="loggedIn()">
+    <button md-button>
+            I am, {{ username }}
+        </button>
+</div>
+
+<button md-icon-button [mdMenuTriggerFor]="menu">
+        <md-icon>more_vert</md-icon>
+    </button>
+
+<md-menu #menu="mdMenu">
+    <button md-menu-item *ngIf="!loggedIn()" (click)="openSignupDialog()">
+            <md-icon color="primary">dialpad</md-icon>
+            <span>Register</span>
+        </button>
+
+    <button md-menu-item *ngIf="!username" (click)="openLoginDialog()">
+            <md-icon color="primary">voicemail</md-icon>
+            <span>Log in</span>
+        </button>
+    <button md-menu-item *ngIf="username" (click)="logout()">
+            <md-icon color="primary">notifications_off</md-icon>
+            <span>Log out</span>
+        </button>
+</md-menu>

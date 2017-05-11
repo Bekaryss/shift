@@ -1,0 +1,18 @@
+<div class="card horizontal  white-text">
+    <div class="card-stacked">
+        <div class="card-content blue-grey darken-1">
+            <a [routerLink]="['/projects', project.Id]"><span (click)="onSelect()" class="card-title"><md-icon *ngIf="project.ManagerId == userId">grade</md-icon>  {{ project.Title }} </span></a>
+            <div [froalaView]="project.Description"></div>
+            <p></p>
+        </div>
+        <div class="card-action">
+
+            <a href="javascript:void(0)" (click)="onSelect()">
+                <md-icon color="primary">more</md-icon>
+            </a>
+            <a href="javascript:void(0)" (click)="onDelete()">
+                <md-icon color="primary">delete</md-icon>
+            </a>
+        </div>
+    </div>
+</div>
